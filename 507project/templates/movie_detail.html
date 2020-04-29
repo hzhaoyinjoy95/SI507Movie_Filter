@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+    
+        .column {
+        float:right;
+        width: 60%;
+        padding: 5px;
+        }
+    
+        /* Clearfix (clear floats) */
+        .row::after {
+        content: "";
+        clear: both;
+        display: table;
+        }
+        </style>    
+    <title>{{title}}</title>
+</head>
+<body>    
+    <div class="row">
+        <div class="column">
+            <img src="{{detail[0][7]}}" style="width:60%">
+        </div>
+            <h2>{{title}} ({{detail[0][2]}})</h2>
+            <p>Rated: {{detail[0][3]}}</p>
+            <p>Released Date: {{detail[0][4]}}</p>
+            <p>Runtime:{{detail[0][5]}}</p>
+            <p>Plot: {{detail[0][6]}}</p>
+            <p>Ratings from various sources:</p>
+            <ul>
+                {% for rating in ratings %}
+                    <li>{{rating}}</li>
+                {% endfor %}
+                </ul>
+                {% if len_ratings == 3 %}
+                <a href='/movie_detail/{{title}}/plot'>Rating Plot for 3 rating sources.</a>
+                {% endif %}
+            <table>
+                <tr>
+                    {% if len_director > 0 %}
+                    <td>Director:</td>
+                    <td><a href='https://www.imdb.com/name/{{director_info[0][2]}}/'>{{director_info[0][1]}}</a></td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if len_writer > 0 %}
+                    <td>Writer:</td>
+                    <td><a href='https://www.imdb.com/name/{{writer_info[0][2]}}/'>{{writer_info[0][1]}}</a></td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if len_star1 > 0 %}
+                    <td>Star:</td>
+                    <td><a href='https://www.imdb.com/name/{{star_info1[0][2]}}/'>{{star_info1[0][1]}}</a></td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if len_star2 > 0 %}
+                    <td>Star:</td>
+                    <td><a href='https://www.imdb.com/name/{{star_info2[0][2]}}/'>{{star_info2[0][1]}}</a></td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if len_star3 > 0 %}
+                    <td>Star:</td>
+                    <td><a href='https://www.imdb.com/name/{{star_info3[0][2]}}/'>{{star_info3[0][1]}}</a></td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if len_star4 > 0 %}
+                    <td>Star:</td>
+                    <td><a href='https://www.imdb.com/name/{{star_info4[0][2]}}/'>{{star_info4[0][1]}}</a></td>
+                    {% endif %}
+                </tr>
+            </table>
+            
+            <p><a href='https://www.imdb.com/title/{{detail[0][9]}}/'>link to IMDB</a></p>
+            <p><a href='/'>Back to Search</a></p>
+    </div>   
+        
+</body>
+    
+</html>
+
+

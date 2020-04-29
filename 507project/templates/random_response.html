@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8"/>
+    <title>Your Favoriate Movie!</title>
+</head>
+<body>
+    <h1>Here is your choice!</h1>
+
+    <p>Recommended Movie for {{name}}!</p>
+    <p>Since you don't have a preference, below are some recommendations I have picked for you!</p>
+
+    <table>
+        <tr>
+            <th>Movie Title</th>
+            <th>Released Year</th>
+            <th>ImdbID</th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{row[0]}}</td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    
+
+</body>
+</html>

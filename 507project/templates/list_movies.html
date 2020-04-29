@@ -1,0 +1,54 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+  <title>More Movie of Your Choice!</title>
+</head>
+<body>
+    <h1>
+    Hello, {{name}}!
+    </h1>
+    <h2>
+        This is the full list of movies:
+    </h2>
+    <p>
+        <a href='/'>Back to Search</a>
+    </p>>
+    <table style="width:100%">
+        
+        <tr>
+            <th>Movie Title</th>
+            <th>Year</th> 
+            <th>Rated</th>
+            <th>More Details</th>
+          </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{row[0]}}</td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td><a href='/movie_detail/{{row[0]}}'>Check out more details!</a></td>></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+      
+</body>
+</html>

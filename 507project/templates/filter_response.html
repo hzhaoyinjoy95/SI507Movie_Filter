@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    h1 {text-align: center;}
+    h2 {text-align: center;}
+    p {text-align: center;}
+    * {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+    </style>
+
+    <meta charset="utf8"/>
+    <title>Your Favoriate Movie!</title>
+</head>
+<body>
+    <h1>Recommended Movie for {{name}}!</h1>
+    <p><a href='/'>Back to Search</a></p>
+    <p>
+    <a href='/more_movies/{{name}}'>To see a lot more movies...</a>
+    </p>
+
+    <h2>Click the Poster to learn more!</h2>
+    
+    <div class="row">
+        <div class="column">
+            <a href="/movie_detail/{{results[0][0]}}">
+            <img src="{{results[0][3]}}" alt="movie1" style="width:100%">
+          <h2>{{results[0][0]}}</h2>
+        </div>
+        <div class="column">
+            <a href="/movie_detail/{{results[1][0]}}">
+            <img src="{{results[1][3]}}" alt="movie2" style="width:100%">
+          <h2>{{results[1][0]}}</h2>
+        </div>
+        <div class="column">
+            <a href="/movie_detail/{{results[2][0]}}">
+            <img src="{{results[2][3]}}" alt="movie3" style="width:100%">
+          <h2>{{results[2][0]}}</h2>
+        </div>
+      </div>
+    
+</body>
+</html>
